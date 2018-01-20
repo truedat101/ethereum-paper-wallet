@@ -119,6 +119,25 @@ public class WalletPageUtility extends HtmlUtility {
 		HtmlUtility.addCloseDiv(html);		
 		HtmlUtility.addCloseDiv(html);		
 		
+		// add 3rd row
+		HtmlUtility.addOpenDiv(html, CSS_CLEARFIX);
+
+		// qr code for privatekey
+		HtmlUtility.addOpenDiv(html, CSS_COLUMN);
+		byte [] walletPKQrCode = QrCodeUtility.contentToPngBytes(wallet.getPrivateKey().toString(), 128);
+		HtmlUtility.addEncodedImage(html, walletPKQrCode, 128, CSS_IMG_WALLET);
+		HtmlUtility.addParagraph(html, "QR Code PK", CSS_CAPTION);
+		HtmlUtility.addCloseDiv(html);
+		
+		// address, pass phrase, wallet file, file name
+		HtmlUtility.addOpenDiv(html, CSS_FILL);
+		HtmlUtility.addOpenDiv(html, CSS_CONTENT);
+		HtmlUtility.addContent(html, wallet.getPrivateKey().toString());
+		HtmlUtility.addCloseDiv(html);
+		HtmlUtility.addParagraph(html, "PK", CSS_CAPTION);
+		
+		HtmlUtility.addCloseDiv(html);		
+		HtmlUtility.addCloseDiv(html);
 		// add footer content
 		String footer = String.format("Page created with EPW Generator [%s] V %s", REPOSITORY, VERSION);
 		HtmlUtility.addOpenFooter(html, CSS_FOOTER);

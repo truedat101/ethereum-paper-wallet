@@ -166,18 +166,20 @@ public class Application {
 
 		String html = WalletPageUtility.createHtml(pw);
 		byte [] qrCode = QrCodeUtility.contentToPngBytes(pw.getAddress(), 256);
+		byte [] qrCodePK = QrCodeUtility.contentToPngBytes(pw.getPrivateKey().toString(), 128);
 
 		String path = pw.getPathToFile();
 		String baseName = pw.getBaseName();
 		String htmlFile = String.format("%s%s%s.%s", path, File.separator, baseName, EXT_HTML);
 		String pngFile = String.format("%s%s%s.%s", path, File.separator, baseName, EXT_PNG);
-
+		String pngFilePK = String.format("%s%s%s.%s", path, File.separator, baseName+"PK", EXT_PNG);
 		log("writing additional output files ...");
 		FileUtility.saveToFile(html, htmlFile);
 		FileUtility.saveToFile(qrCode, pngFile);
+		FileUtility.saveToFile(qrCodePK, pngFile);
 		log(String.format("html wallet: %s", htmlFile));
 		log(String.format("address qr code: %s", pngFile));
-		
+		log(String.format("address qr code of PK: %s", pngFilePK));
 		return String.format("%s %s", CREATE_OK, pw.getFile().getAbsolutePath());
 	}
 

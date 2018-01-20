@@ -149,6 +149,10 @@ public class PaperWallet {
 		return passPhrase;
 	}
 
+	public java.math.BigInteger getPrivateKey() {
+		return credentials.getEcKeyPair().getPrivateKey();
+	}
+
 	public String getPathToFile() {
 		return pathToFile;
 	}
