@@ -124,7 +124,7 @@ public class WalletPageUtility extends HtmlUtility {
 
 		// qr code for privatekey
 		HtmlUtility.addOpenDiv(html, CSS_COLUMN);
-		byte [] walletPKQrCode = QrCodeUtility.contentToPngBytes(wallet.getPrivateKey().toString(), 128);
+		byte [] walletPKQrCode = QrCodeUtility.contentToPngBytes(wallet.getPrivateKey(), 128);
 		HtmlUtility.addEncodedImage(html, walletPKQrCode, 128, CSS_IMG_WALLET);
 		HtmlUtility.addParagraph(html, "QR Code PK", CSS_CAPTION);
 		HtmlUtility.addCloseDiv(html);

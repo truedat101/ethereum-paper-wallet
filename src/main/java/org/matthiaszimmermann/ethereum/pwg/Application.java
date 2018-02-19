@@ -166,7 +166,7 @@ public class Application {
 
 		String html = WalletPageUtility.createHtml(pw);
 		byte [] qrCode = QrCodeUtility.contentToPngBytes(pw.getAddress(), 256);
-		byte [] qrCodePK = QrCodeUtility.contentToPngBytes(pw.getPrivateKey().toString(), 128);
+		byte [] qrCodePK = QrCodeUtility.contentToPngBytes(pw.getPrivateKey(), 128);
 
 		String path = pw.getPathToFile();
 		String baseName = pw.getBaseName();

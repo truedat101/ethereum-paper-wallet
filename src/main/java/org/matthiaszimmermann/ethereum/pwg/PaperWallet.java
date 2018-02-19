@@ -149,7 +149,7 @@ public class PaperWallet {
 		return passPhrase;
 	}
 
-	public java.math.BigInteger getPrivateKey() {
+	public String getPrivateKey() {
 		return Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().getPrivateKey());
 	}
 
