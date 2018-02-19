@@ -150,7 +150,7 @@ public class PaperWallet {
 	}
 
 	public java.math.BigInteger getPrivateKey() {
-		return credentials.getEcKeyPair().getPrivateKey();
+		return Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().getPrivateKey());
 	}
 
 	public String getPathToFile() {
